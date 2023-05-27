@@ -1,0 +1,101 @@
+//main code
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+    padding: 30px;
+    margin: 10% auto;
+    width: 50%;
+    
+    //blurry mixin
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+.app-name {
+}
+.search {
+    display: flex;
+    align-items: center;
+}
+.search-icon {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+.search-input {
+    margin: 0 10px;
+    width: 300px;
+    padding: 5px;
+
+    
+    //blurry mixin
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 5px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+}
+.search-input::placeholder {
+   color: #000;
+
+}
+.search-btn {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+.weather {
+    margin: 20px 0 0 0;
+}
+.weather-info-1 {
+    display: flex;
+    align-items: center;
+}
+.info-img {
+    width: 300px;
+    height: 190px;
+}
+.info-temperature {
+    font-size: 30px;
+}
+.info-weather {
+    text-align: center;
+    margin: 10px 0 30px 0;
+    font-size: 30px;
+}
+.weather-info-2 {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+}
+.info-humidity {
+
+}
+.humidity-title {
+}
+.humidity-percent {
+}
+
+.info-humidity {
+    
+}
+.humidity-title {
+}
+.humidity-percent {
+}
+.info-humidity {
+    
+}
+.humidity-title {
+}
+.humidity-percent {
+}
+
