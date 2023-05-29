@@ -29,24 +29,14 @@ const addWind = document.querySelector('.add-wind');
 const windTitle = document.querySelector('.wind-title');
 const windValue = document.querySelector('.wind-value'); 
 
-searchButton.addEventListener('click', () => {
+searchButton.addEventListener("click", () => {
     const APIkey = '80f6af54d5ac9494f7c6db394b035563'; 
+    const location = searchInput.value; 
     
-    const location = searchInput.value;  
-
     if(location === '') return;
 
-    // fetch(`https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid=${APIkey}`)
-    //     .then(res => res.json())
-    //         .then(json => {
-    //             if(json.cod === '404') {
-                    
-    //             }
-    //         })
-    weather.style.display = 'block';
-    mainTemp.style.display = 'none';
-    mainWeather.style.display = 'none';
-    weatherAdd.style.display = 'none';
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid=${APIkey}`); 
+
     
 })
 

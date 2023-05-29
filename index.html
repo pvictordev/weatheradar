@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="scss/import.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&display=swap" rel="stylesheet">
@@ -16,36 +18,33 @@
 
     <div class="container">
         
-        <!-- <h1 class="app-name">CLIMETER</h1> -->
-
-
         <div class="search">
-            <div class="search-icon"><img src="img/free-location-icon-2950-thumb.png" alt=""></div>
-            <input class="search-input" type="text" name="" id="" placeholder="Enter your location" >
-            <div class="search-btn"><img src="img/search-icon.png" alt=""></div>
+            <div class="location-icon"><i class="fa-solid fa-location-arrow"></i></div>
+            <input class="search-input" type="text" name="" id="" placeholder="Location" >
+            <div class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></div>
         </div>
 
-        <div class="weather">
+        <div class="weather fadeIn">
 
-            <div class="weather-info-1">
-                <div class="info-img"> <img src="img/Sun-And-Cloud-PNG-HD.png" alt=""> </div>
-                <div class="info-temperature"> - °C </div>
+            <div class="weather-main">
+                <div class="main-img"> <img src="img/no-img.png"> </div>
+                <div class="main-temperature"> - °C </div>
                 
             </div>
-            <div class="info-weather">Sunny</div> 
+            <div class="main-weather">-</div> 
     
-            <div class="weather-info-2">
-                <div class="info-humidity">
-                    <p class="humidity-title">Humidity</p>
-                    <p class="humidity-percent">- %</p>
+            <div class="weather-add">
+                <div class="add-humidity">
+                    <p class="humidity-title title">Humidity</p>
+                    <p class="humidity-value">- %</p>
                 </div>
-                <div class="info-visibilty">
-                    <p class="visibilty-title">Visibility</p>
-                    <p class="visibilty-percent">- km</p>
+                <div class="add-visibilty">
+                    <p class="visibilty-title title">Visibility</p>
+                    <p class="visibilty-value">- km</p>
                 </div>
-                <div class="info-wind">
-                    <p class="wimd-title">Wind</p>
-                    <p class="wind-percent">- km/h</p>
+                <div class="add-wind">
+                    <p class="wind-title title">Wind</p>
+                    <p class="wind-value">- km/h</p>
                 </div>
             </div>
 
@@ -119,5 +118,6 @@
 
     </div>
 
+    <script src="js/script.js"></script>
 </body>
 </html>

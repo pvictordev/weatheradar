@@ -38,6 +38,7 @@ body {
   line-height: 1.5;
   font-family: "Be Vietnam Pro", sans-serif;
   color: #000;
+  overflow: hidden;
   background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.7)), url("../img/day.jpg") 0 0/cover no-repeat;
   background-repeat: no-repeat;
 }
@@ -89,36 +90,40 @@ select {
   flex-direction: column;
   padding: 30px;
   margin: 10% auto;
-  width: 50%;
+  width: 40%;
+  border-radius: 10px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
 .search {
   display: flex;
+  justify-content: baseline;
   align-items: center;
 }
 
-.search-icon {
-  width: 35px;
-  height: 35px;
+.location-icon {
+  font-size: 30px;
   cursor: pointer;
 }
 
 .search-input {
-  margin: 0 10px;
+  margin: 0 20px;
   width: 300px;
-  padding: 5px;
+  padding: 5px 5px 5px 10px;
+  border-radius: 5px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-radius: 5px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.search-input:focus {
+  outline: none;
 }
 
 .search-input::-moz-placeholder {
@@ -130,8 +135,7 @@ select {
 }
 
 .search-btn {
-  width: 35px;
-  height: 35px;
+  font-size: 30px;
   cursor: pointer;
 }
 
@@ -139,27 +143,32 @@ select {
   margin: 20px 0 0 0;
 }
 
-.weather-info-1 {
+.weather-main {
   display: flex;
   align-items: center;
 }
 
-.info-img {
-  width: 300px;
-  height: 190px;
+.main-img {
+  width: 250px;
+  height: 200px;
+  margin: 0 0px 0 0px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
-.info-temperature {
+.main-temperature {
   font-size: 30px;
+  margin: 0 0 0 0px;
 }
 
-.info-weather {
+.main-weather {
   text-align: center;
-  margin: 10px 0 30px 0;
+  margin: 20px 0 20px 0;
   font-size: 30px;
 }
 
-.weather-info-2 {
+.weather-add {
   display: flex;
   text-align: center;
   justify-content: space-between;

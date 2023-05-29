@@ -39,7 +39,8 @@ body {
 
   font-family: 'Be Vietnam Pro', sans-serif;  
   color: #000;
-  background:linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.7)),  url('../img/day.jpg') 0 0/cover no-repeat; //
+  overflow: hidden;
+  background:linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.7)),  url('../img/day.jpg') 0 0/cover no-repeat; 
   background-repeat:no-repeat ;
 }
 
