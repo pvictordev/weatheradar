@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     flex-direction:column;
-    padding: 30px;
+    padding: 20px;
     margin: 10% auto;
     width: 40%;
     border-radius:10px; 
@@ -46,7 +46,7 @@
 
 
 .weather {
-    margin: 20px 0 0 0;
+    margin: 10px 0 0px 0;
     display: none; 
 }
 .not-found {
@@ -59,30 +59,30 @@
 .weather-main {
     display: flex;
     align-items: center;
+    flex-direction: row;
+    margin: 20px 0 25px 0;
 }
 .main-img {
     // width: 300px;
     // height: 190px;
-    width: 250px;
+    width: 200px;
     height: 200px;
-    margin: 0 0px 0 0px;
+    margin: 0 10px 0 0px;
     display: flex;
     justify-content: center;
     align-content: center;
 
 }
 .main-img img {
-    // width: 150px;
-    // height: 150px;
-  
+    
 }
 .main-temperature {
     font-size: 30px;
-    margin: 0 0 0 0px;
+    margin: 0 0 0 10px;
 }
 .main-weather {
     text-align: center;
-    margin: 20px 0 20px 0;
+    margin: 0px 0 30px 0;
     font-size: 30px;
 }
 
@@ -116,3 +116,21 @@
 .wind-value {
 }
 
+.animation {
+    animation-name: animation;
+    animation-delay:0.5s;
+    animation-duration:3s ;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
+    animation-direction:normal;
+    animation-fill-mode:forwards;
+    animation-play-state: paused;
+}
+@keyframes animation {
+    from{
+        height: 106px;
+    }
+    to {
+        height: 200px;
+    }
+}

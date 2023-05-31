@@ -34,27 +34,19 @@ const windValue = document.querySelector('.wind-value');
 searchButton.addEventListener("click", () => {
     //api url- https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
     //api key- 80f6af54d5ac9494f7c6db394b035563
+    // container.classList.add('.animation'); 
 
     const APIkey = '80f6af54d5ac9494f7c6db394b035563'; 
 
     const location = searchInput.value; 
     
     if(location === '') return;
-   
-    //default
-    // imgMain.src = 'img/clear.png'; 
-    // mainTemp.innerHTML = 2 + ' °C'; 
-    // mainWeather.innerHTML = 'Sunny'; 
-    // humidityValue.innerHTML = 10 + ' %'; 
-    // visibilityValue.innerHTML = 5 + ' km'; 
-    // windValue.innerHTML = 20 + ' km/h'; 
 
-    // fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${APIkey}`).then(response => response.json()).then(json => console.log(json)); 
-
-  
+    // fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${APIkey}`).then(response => response.json()).then(json => console.log(json));   
 
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${APIkey}`).then(response => response.json()).then(json => {
         if(json.cod === '404') {
+
             weather.style.display = 'block';
             mainWeather.innerHTML = 'Not found'; 
 
@@ -66,7 +58,7 @@ searchButton.addEventListener("click", () => {
         }
 
             weather.style.display = 'block'; 
-
+            
             switch(json.weather[0].main) {
                 case 'Clouds':
                     imgMain.src = 'img/clouds.png';
@@ -79,6 +71,31 @@ searchButton.addEventListener("click", () => {
                     //mainWeather.innerHTML = json.weather[0].main
                     mainWeather.innerHTML = 'Rain';
                     break;
+
+                case 'Thunderstorm' :
+                    imgMain.src = 'img/Thunderstorm.png';
+                    //mainWeather.innerHTML = json.weather[0].main
+                    mainWeather.innerHTML = 'Thunderstorm';
+                    break;
+
+                case 'Fog' :
+                    imgMain.src = 'img/fog.png';
+                    //mainWeather.innerHTML = json.weather[0].main
+                    mainWeather.innerHTML = 'Fog';
+                    break;
+
+                    
+                case 'Mist' :
+                imgMain.src = 'img/fog.png';
+                //mainWeather.innerHTML = json.weather[0].main
+                mainWeather.innerHTML = 'Mist';
+                break;
+
+                case 'Haze' :
+                imgMain.src = 'img/fog.png';
+                //mainWeather.innerHTML = json.weather[0].main
+                mainWeather.innerHTML = 'Haze';
+                break; 
 
                 case 'Clear':
                     imgMain.src = 'img/clear.png';
@@ -99,20 +116,41 @@ searchButton.addEventListener("click", () => {
             mainTemp.innerHTML = `${Math.round(json.main.temp - 273.15)} °C`
             humidityValue.innerHTML = `${json.main.humidity} %`; 
             visibilityValue.innerHTML = `${json.visibility / 1000} km`;
-            windValue.innerHTML = `${json.wind.speed} km/h`
-        
+            windValue.innerHTML = `${Math.round(json.wind.speed)} km/h`
+
+            mainImg.style.display = ''; 
+            mainTemp.style.display = '';
+            weatherAdd.style.display = ''
+
+            
+            console.log(json)
+
     }); 
-  
-   
-
-
-
-
     
 })
 
 
 
+// Задайте смещение времени в минутах
+var timezoneOffset = -300; // Например, -300 соответствует UTC-5
+
+// Создайте новый объект Date
+var currentTime = new Date();
+
+// Получите текущее время в миллисекундах
+var currentTimestamp = currentTime.getTime();
+
+// Вычислите смещение времени в миллисекундах
+var offsetMilliseconds = timezoneOffset * 60000;
+
+// Получите новое время, добавив смещение к текущему времени
+var targetTimestamp = currentTimestamp + offsetMilliseconds;
+
+// Создайте новый объект Date с новым временем
+var targetTime = new Date(targetTimestamp);
+
+// Выведите время в определенном часовом поясе
+console.log(targetTime);
 
 
 
