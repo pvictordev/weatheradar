@@ -47,8 +47,13 @@
 
 .weather {
     margin: 20px 0 0 0;
-    //display: none;
-   
+    display: none; 
+}
+.not-found {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    opacity: 0;
 }
 
 .weather-main {
