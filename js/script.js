@@ -32,9 +32,7 @@ const windTitle = document.querySelector('.wind-title');
 const windValue = document.querySelector('.wind-value'); 
 
 searchButton.addEventListener("click", () => {
-    //api url- https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
-    //api key- 80f6af54d5ac9494f7c6db394b035563
-    // container.classList.add('.animation'); 
+    
 
     const APIkey = '80f6af54d5ac9494f7c6db394b035563'; 
 
@@ -42,12 +40,13 @@ searchButton.addEventListener("click", () => {
     
     if(location === '') return;
 
-    // fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${APIkey}`).then(response => response.json()).then(json => console.log(json));   
+    container.classList.add('slide'); 
+    weather.classList.add('appear'); 
 
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${APIkey}`).then(response => response.json()).then(json => {
         if(json.cod === '404') {
 
-            weather.style.display = 'block';
+            // weather.style.display = 'block';
             mainWeather.innerHTML = 'Not found'; 
 
             mainImg.style.display = 'none'; 
@@ -57,55 +56,53 @@ searchButton.addEventListener("click", () => {
                     
         }
 
-            weather.style.display = 'block'; 
+            // weather.style.display = 'block'; 
             
             switch(json.weather[0].main) {
                 case 'Clouds':
                     imgMain.src = 'img/clouds.png';
-                    //mainWeather.innerHTML = json.weather[0].main
                     mainWeather.innerHTML = 'Clouds';
                     break;
 
                 case 'Rain':
                     imgMain.src = 'img/rain.png';
-                    //mainWeather.innerHTML = json.weather[0].main
                     mainWeather.innerHTML = 'Rain';
                     break;
 
+                case 'Drizzle':
+                    imgMain.src = 'img/rain.png';
+                    mainWeather.innerHTML = 'Drizle';
+                break;
+
                 case 'Thunderstorm' :
                     imgMain.src = 'img/Thunderstorm.png';
-                    //mainWeather.innerHTML = json.weather[0].main
                     mainWeather.innerHTML = 'Thunderstorm';
                     break;
 
                 case 'Fog' :
                     imgMain.src = 'img/fog.png';
-                    //mainWeather.innerHTML = json.weather[0].main
                     mainWeather.innerHTML = 'Fog';
                     break;
 
-                    
                 case 'Mist' :
                 imgMain.src = 'img/fog.png';
-                //mainWeather.innerHTML = json.weather[0].main
                 mainWeather.innerHTML = 'Mist';
                 break;
 
                 case 'Haze' :
                 imgMain.src = 'img/fog.png';
-                //mainWeather.innerHTML = json.weather[0].main
                 mainWeather.innerHTML = 'Haze';
                 break; 
 
                 case 'Clear':
                     imgMain.src = 'img/clear.png';
-                    //mainWeather.innerHTML = json.weather[0].main
+                    
                     mainWeather.innerHTML = 'Clear';
                     break;
 
                 case 'Snow':
                     imgMain.src = 'img/snow.png';
-                    //mainWeather.innerHTML = json.weather[0].main
+            
                     mainWeather.innerHTML = 'Snow';
                     break;
                 
@@ -115,7 +112,7 @@ searchButton.addEventListener("click", () => {
         
             mainTemp.innerHTML = `${Math.round(json.main.temp - 273.15)} °C`
             humidityValue.innerHTML = `${json.main.humidity} %`; 
-            visibilityValue.innerHTML = `${json.visibility / 1000} km`;
+            visibilityValue.innerHTML = `${Math.round(json.visibility / 1000)} km`;
             windValue.innerHTML = `${Math.round(json.wind.speed)} km/h`
 
             mainImg.style.display = ''; 

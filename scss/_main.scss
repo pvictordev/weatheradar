@@ -5,30 +5,37 @@
     justify-content: center;
     align-items: center;
     flex-direction:column;
-    padding: 20px;
-    margin: 10% auto;
-    width: 40%;
-    border-radius:10px; 
+    padding: 25px 20px 20px 20px;
     
+    margin: 10% auto;
+    max-width: 510px;
+    max-height: 105px;
+    border-radius:10px; 
     @include blurry-mixin(); 
+    transition: 1s;
+   
 }
+.slide {
+    max-height: 500px;
+}
+.slideback {}
+
 
 
 .search {
-    display: flex;
+    @include flexCenter-mixin; 
     justify-content: baseline;
-    align-items: center;
 }
+
 .location-icon {
-    font-size:30px ;
+    font-size:30px;
     cursor: pointer;
 }
 .search-input {
     margin: 0 20px;
-    width: 300px;
+    min-width: 300px;
     padding: 5px 5px 5px 10px;
     border-radius: 5px;
-
     @include blurry-mixin(); 
 
 }
@@ -45,37 +52,45 @@
 }
 
 
+
 .weather {
     margin: 10px 0 0px 0;
-    display: none; 
+    //display: none;
+    overflow: hidden; 
 }
-.not-found {
-    display: flex;
-    text-align: center;
-    align-items: center;
+.appear {
     opacity: 0;
+    scale: 0;
+    animation: appear 0.5s forwards;  
+    animation-delay:0.5s;
+}
+@keyframes appear {
+    0% {
+        opacity: 0;
+        scale: 0;
+    }
+    100%{
+        opacity: 1;
+        scale: 1;
+    }
 }
 
 .weather-main {
-    display: flex;
-    align-items: center;
+    @include flexCenter-mixin; 
     flex-direction: row;
     margin: 20px 0 25px 0;
 }
 .main-img {
-    // width: 300px;
-    // height: 190px;
-    width: 200px;
-    height: 200px;
+    max-width: 200px;
+    max-height: 200px;
     margin: 0 10px 0 0px;
-    display: flex;
+    @include flexCenter-mixin; 
     justify-content: center;
-    align-content: center;
+    
+   
 
 }
-.main-img img {
-    
-}
+
 .main-temperature {
     font-size: 30px;
     margin: 0 0 0 10px;
@@ -87,50 +102,60 @@
 }
 
 .weather-add {
-    display: flex;
-    text-align: center;
+    @include flexCenter-mixin; 
     justify-content: space-between;
+    padding-bottom: 10px;
 }
 
-.add-humidity {
 
-}
-.humidity-title {
-}
-.humidity-value {
-}
-
-.add-visibility {
-    
-}
-.visibility-title {
-}
-.visibility-value {
-}
-
-.add-wind {
-    
-}
-.wind-title {
-}
-.wind-value {
-}
-
-.animation {
-    animation-name: animation;
-    animation-delay:0.5s;
-    animation-duration:3s ;
-    animation-timing-function: ease-out;
-    animation-iteration-count: 1;
-    animation-direction:normal;
-    animation-fill-mode:forwards;
-    animation-play-state: paused;
-}
-@keyframes animation {
-    from{
-        height: 106px;
+@media(max-width: 520px) {
+    .container {     
+        margin: 10% auto;
+        max-width: 300px;
+        padding: 10px;
+    }    
+    .search-input {
+        min-width: 150px;
+        margin: 10px;
     }
-    to {
-        height: 200px;
+    .search-btn {
+        font-size: 20px;
+    }
+    .location-icon {
+        font-size: 20px;
+    }
+    .weather {
+        margin: 0;
+    }
+    .weather-main {
+        margin: 15px 0 20px 0;
+    }
+    .main-img {
+        max-width: 150px;
+        max-height: 150px;
+        margin: 0 10px 0 0px;
+    }
+    .main-temperature {
+        font-size: 25px;
+       
+    }
+    .main-weather {
+        text-align: center;
+        margin: 0px 0 30px 0;
+        font-size: 20px;
+    }
+    .weather-add {
+        font-size:15px ;
     }
 }
+
+
+
+
+
+
+
+
+
+
+

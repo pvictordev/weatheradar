@@ -88,21 +88,27 @@ select {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 20px;
+  padding: 25px 20px 20px 20px;
   margin: 10% auto;
-  width: 40%;
+  max-width: 510px;
+  max-height: 105px;
   border-radius: 10px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: 1s;
+}
+
+.slide {
+  max-height: 500px;
 }
 
 .search {
   display: flex;
-  justify-content: baseline;
   align-items: center;
+  justify-content: baseline;
 }
 
 .location-icon {
@@ -112,7 +118,7 @@ select {
 
 .search-input {
   margin: 0 20px;
-  width: 300px;
+  min-width: 300px;
   padding: 5px 5px 5px 10px;
   border-radius: 5px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
@@ -141,16 +147,26 @@ select {
 
 .weather {
   margin: 10px 0 0px 0;
-  display: none;
+  overflow: hidden;
 }
 
-.not-found {
-  display: flex;
-  text-align: center;
-  align-items: center;
+.appear {
   opacity: 0;
+  scale: 0;
+  animation: appear 0.5s forwards;
+  animation-delay: 0.5s;
 }
 
+@keyframes appear {
+  0% {
+    opacity: 0;
+    scale: 0;
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}
 .weather-main {
   display: flex;
   align-items: center;
@@ -159,12 +175,12 @@ select {
 }
 
 .main-img {
-  width: 200px;
-  height: 200px;
+  max-width: 200px;
+  max-height: 200px;
   margin: 0 10px 0 0px;
   display: flex;
+  align-items: center;
   justify-content: center;
-  align-content: center;
 }
 
 .main-temperature {
@@ -180,26 +196,47 @@ select {
 
 .weather-add {
   display: flex;
-  text-align: center;
+  align-items: center;
   justify-content: space-between;
+  padding-bottom: 10px;
 }
 
-.animation {
-  animation-name: animation;
-  animation-delay: 0.5s;
-  animation-duration: 3s;
-  animation-timing-function: ease-out;
-  animation-iteration-count: 1;
-  animation-direction: normal;
-  animation-fill-mode: forwards;
-  animation-play-state: paused;
-}
-
-@keyframes animation {
-  from {
-    height: 106px;
+@media (max-width: 520px) {
+  .container {
+    margin: 10% auto;
+    max-width: 300px;
+    padding: 10px;
   }
-  to {
-    height: 200px;
+  .search-input {
+    min-width: 150px;
+    margin: 10px;
+  }
+  .search-btn {
+    font-size: 20px;
+  }
+  .location-icon {
+    font-size: 20px;
+  }
+  .weather {
+    margin: 0;
+  }
+  .weather-main {
+    margin: 15px 0 20px 0;
+  }
+  .main-img {
+    max-width: 150px;
+    max-height: 150px;
+    margin: 0 10px 0 0px;
+  }
+  .main-temperature {
+    font-size: 25px;
+  }
+  .main-weather {
+    text-align: center;
+    margin: 0px 0 30px 0;
+    font-size: 20px;
+  }
+  .weather-add {
+    font-size: 15px;
   }
 }/*# sourceMappingURL=import.css.map */
