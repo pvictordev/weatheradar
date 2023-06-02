@@ -6,13 +6,11 @@
   box-sizing: border-box;
 }
 
-/* Убираем внутренние отступы */
 ul[class],
 ol[class] {
   padding: 0;
 }
 
-/* Убираем внешние отступы */
 body,
 h1,
 h2,
@@ -30,7 +28,6 @@ dd {
   margin: 0;
 }
 
-/* Выставляем основные настройки по-умолчанию для body */
 body {
   min-height: 100vh;
   scroll-behavior: smooth;
@@ -40,33 +37,27 @@ body {
   color: #000;
   overflow: hidden;
   background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.7)), url("../img/day.jpg") 0 0/cover no-repeat;
-  background-repeat: no-repeat;
 }
 
-/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
 ul[class],
 ol[class] {
   list-style: none;
 }
 
-/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
 a:not([class]) {
   -webkit-text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
 }
 
-/* Упрощаем работу с изображениями */
 img {
   max-width: 100%;
   display: block;
 }
 
-/* Указываем понятную периодичность в потоке данных у article*/
 article > * + * {
   margin-top: 1em;
 }
 
-/* Наследуем шрифты для инпутов и кнопок */
 input,
 button,
 textarea,
@@ -74,7 +65,6 @@ select {
   font: inherit;
 }
 
-/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
@@ -88,10 +78,10 @@ select {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 25px 20px 20px 20px;
-  margin: 10% auto;
+  padding: 30px 20px 20px 20px;
+  margin: 5% auto;
   max-width: 510px;
-  max-height: 105px;
+  max-height: 110px;
   border-radius: 10px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
   backdrop-filter: blur(10px);
@@ -103,6 +93,12 @@ select {
 
 .slide {
   max-height: 500px;
+}
+
+.theme {
+  margin: 15px;
+  font-size: 30px;
+  cursor: pointer;
 }
 
 .search {
@@ -134,10 +130,12 @@ select {
 
 .search-input::-moz-placeholder {
   color: #000;
+  opacity: 0.5;
 }
 
 .search-input::placeholder {
   color: #000;
+  opacity: 0.5;
 }
 
 .search-btn {
@@ -203,9 +201,13 @@ select {
 
 @media (max-width: 520px) {
   .container {
-    margin: 10% auto;
+    margin: 5% auto;
     max-width: 300px;
-    padding: 10px;
+    padding: 11px 20px 0 20px;
+    max-height: 80px;
+  }
+  .slide {
+    max-height: 400px;
   }
   .search-input {
     min-width: 150px;
@@ -238,5 +240,22 @@ select {
   }
   .weather-add {
     font-size: 15px;
+    padding-bottom: 20px;
   }
+}
+.themeBody {
+  background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.7)), url("../img/night.jpg") 0 0/cover no-repeat;
+  color: #fff;
+}
+
+.themeSearch {
+  color: #fff;
+}
+
+.themeSearch::-moz-placeholder {
+  color: #fff;
+}
+
+.themeSearch::placeholder {
+  color: #fff;
 }/*# sourceMappingURL=import.css.map */

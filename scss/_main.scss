@@ -5,22 +5,25 @@
     justify-content: center;
     align-items: center;
     flex-direction:column;
-    padding: 25px 20px 20px 20px;
+    padding: 30px 20px 20px 20px;
     
-    margin: 10% auto;
+    margin: 5% auto;
     max-width: 510px;
-    max-height: 105px;
+    max-height: 110px;
     border-radius:10px; 
     @include blurry-mixin(); 
+
     transition: 1s;
-   
 }
 .slide {
     max-height: 500px;
 }
-.slideback {}
 
-
+.theme {
+    margin: 15px; 
+    font-size: 30px; 
+    cursor: pointer
+}
 
 .search {
     @include flexCenter-mixin; 
@@ -37,14 +40,14 @@
     padding: 5px 5px 5px 10px;
     border-radius: 5px;
     @include blurry-mixin(); 
-
+    
 }
 .search-input:focus {
     outline: none;
 }
 .search-input::placeholder {
    color: #000;
-
+   opacity: 0.5;
 }
 .search-btn {
     font-size: 30px;
@@ -55,7 +58,6 @@
 
 .weather {
     margin: 10px 0 0px 0;
-    //display: none;
     overflow: hidden; 
 }
 .appear {
@@ -110,9 +112,13 @@
 
 @media(max-width: 520px) {
     .container {     
-        margin: 10% auto;
+        margin: 5% auto;
         max-width: 300px;
-        padding: 10px;
+        padding: 11px 20px 0 20px;
+        max-height: 80px;
+    } 
+    .slide {
+        max-height: 400px;
     }    
     .search-input {
         min-width: 150px;
@@ -146,8 +152,26 @@
     }
     .weather-add {
         font-size:15px ;
+        padding-bottom: 20px ;
     }
 }
+
+//toggle
+.themeBody {
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.7)),  url('../img/night.jpg') 0 0/cover no-repeat; 
+    color: #fff;
+}
+.themeSearch {
+    color: #fff;
+}
+.themeSearch::placeholder {
+    color: #fff;
+}
+
+
+
+
+
 
 
 
