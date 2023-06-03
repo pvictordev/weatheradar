@@ -15,8 +15,11 @@
 
     transition: 1s;
 }
-.slide {
+.slideDown {
     max-height: 500px;
+}
+.slideUp {
+    max-height: 226px;
 }
 
 .theme {
@@ -60,20 +63,44 @@
     margin: 10px 0 0px 0;
     overflow: hidden; 
 }
+
 .appear {
     opacity: 0;
     scale: 0;
     animation: appear 0.5s forwards;  
     animation-delay:0.5s;
+   
 }
 @keyframes appear {
     0% {
         opacity: 0;
         scale: 0;
     }
+    // 50% {
+        
+    // }
     100%{
         opacity: 1;
         scale: 1;
+    }
+}
+.disappear {
+    opacity: 1;
+    scale: 1;
+    animation: disappear 0.5s forwards;  
+    animation-delay:0.5s;
+}
+@keyframes disappear {
+    0% {
+        opacity: 1;
+        scale: 1;
+    }
+    // 50% {
+        
+    // }
+    100%{
+        opacity: 0;
+        scale: 0;
     }
 }
 
@@ -163,10 +190,11 @@
 }
 .themeSearch {
     color: #fff;
+    &::placeholder {
+        color: #fff;
+    }
 }
-.themeSearch::placeholder {
-    color: #fff;
-}
+
 
 
 

@@ -27,6 +27,8 @@ const windValue = document.querySelector('.wind-value');
 const theme = document.querySelector('.theme'); 
 
 
+
+
 //theme changing
 function themeChange() {
     body.classList.toggle('themeBody'); 
@@ -34,26 +36,52 @@ function themeChange() {
 }
 theme.addEventListener("click", themeChange); 
 
+
+
+
 //city search
 searchButton.addEventListener("click", () => {
     
-
     const APIkey = '80f6af54d5ac9494f7c6db394b035563'; 
 
     const location = searchInput.value; 
-    
+
     if(location === '') return;
 
-    container.classList.add('slide'); 
-    weather.classList.add('appear'); 
+    //old code
+    // container.classList.add('slideDown');     
+    // weather.classList.add('appear'); 
 
+    // container.classList.add('slideDown');  
+    //container.classList.toggle('slideUp');    
+
+    // weather.classList.add('appear');
+    // weather.classList.add('disappear'); 
+
+
+    weather.classList.toggle('appear'); 
+
+    
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${APIkey}`).then(response => response.json()).then(json => {
+
+
         if(json.cod === '404') {
             mainWeather.innerHTML = 'Not found'; 
             mainImg.style.display = 'none'; 
             mainTemp.style.display = 'none';
-            weatherAdd.style.display = 'none'
+            weatherAdd.style.display = 'none'; 
+
+            container.classList.remove('slideDown');
+            container.classList.add('slideUp'); 
+                  
+
         }
+           
+        else {
+            container.classList.remove('slideUp');
+            container.classList.add('slideDown'); 
+            weather.classList.add('appear'); 
+            
 
             switch(json.weather[0].main) {
                 case 'Clouds':
@@ -104,7 +132,7 @@ searchButton.addEventListener("click", () => {
                 default:
                     imgMain.src = '';   
             }
-        
+        }
             mainTemp.innerHTML = `${Math.round(json.main.temp - 273.15)} °C`
             humidityValue.innerHTML = `${json.main.humidity} %`; 
             visibilityValue.innerHTML = `${Math.round(json.visibility / 1000)} km`;
@@ -114,7 +142,7 @@ searchButton.addEventListener("click", () => {
             mainTemp.style.display = '';
             weatherAdd.style.display = '';
 
-            console.log(json);
+   
 
     }); 
     

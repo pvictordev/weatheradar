@@ -91,8 +91,12 @@ select {
   transition: 1s;
 }
 
-.slide {
+.slideDown {
   max-height: 500px;
+}
+
+.slideUp {
+  max-height: 226px;
 }
 
 .theme {
@@ -163,6 +167,23 @@ select {
   100% {
     opacity: 1;
     scale: 1;
+  }
+}
+.disappear {
+  opacity: 1;
+  scale: 1;
+  animation: disappear 0.5s forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes disappear {
+  0% {
+    opacity: 1;
+    scale: 1;
+  }
+  100% {
+    opacity: 0;
+    scale: 0;
   }
 }
 .weather-main {
@@ -251,11 +272,9 @@ select {
 .themeSearch {
   color: #fff;
 }
-
 .themeSearch::-moz-placeholder {
   color: #fff;
 }
-
 .themeSearch::placeholder {
   color: #fff;
 }/*# sourceMappingURL=import.css.map */
