@@ -7,7 +7,6 @@ const locationIcon = document.querySelector('.location-icon');
 const searchInput = document.querySelector(".search-input");
 const searchButton = document.querySelector('.search-btn');
 
-
 const weather = document.querySelector('.weather');
 
 const weatherMain = document.querySelector('.weather-main'); 
@@ -25,8 +24,6 @@ const visibilityValue = document.querySelector('.visibility-value');
 const windValue = document.querySelector('.wind-value'); 
 
 const theme = document.querySelector('.theme'); 
-
-
 
 
 //theme changing
@@ -127,8 +124,6 @@ theme.addEventListener("click", themeChange);
                 mainImg.style.display = ''; 
                 mainTemp.style.display = '';
                 weatherAdd.style.display = '';
-    
-       
     
         }); 
     
