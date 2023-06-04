@@ -63,7 +63,6 @@ theme.addEventListener("click", themeChange);
             else {
                 container.classList.remove('slideUp'); 
                 container.classList.add('slideDown'); 
-
                 weather.classList.add('appear'); 
               
                 switch(json.weather[0].main) {
