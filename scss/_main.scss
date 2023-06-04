@@ -14,19 +14,16 @@
     @include blurry-mixin(); 
 
     transition: 1s;
+    
 }
 .slideDown {
     max-height: 500px;
+
 }
 .slideUp {
-    max-height: 226px;
+    max-height: 226px;  
 }
 
-.theme {
-    margin: 15px; 
-    font-size: 30px; 
-    cursor: pointer
-}
 
 .search {
     @include flexCenter-mixin; 
@@ -63,46 +60,40 @@
     margin: 10px 0 0px 0;
     overflow: hidden; 
 }
-
 .appear {
     opacity: 0;
     scale: 0;
     animation: appear 0.5s forwards;  
     animation-delay:0.5s;
-   
 }
 @keyframes appear {
     0% {
         opacity: 0;
         scale: 0;
     }
-    // 50% {
-        
-    // }
+ 
     100%{
         opacity: 1;
         scale: 1;
     }
 }
-.disappear {
-    opacity: 1;
-    scale: 1;
-    animation: disappear 0.5s forwards;  
-    animation-delay:0.5s;
-}
-@keyframes disappear {
-    0% {
-        opacity: 1;
-        scale: 1;
-    }
-    // 50% {
-        
-    // }
-    100%{
-        opacity: 0;
-        scale: 0;
-    }
-}
+// .disappear {
+//     opacity: 1;
+//     scale: 1;
+//     animation: disappear 0.5s forwards;  
+//     animation-delay:0.5s;
+// }
+// @keyframes disappear {
+//     0% {
+//         opacity: 1;
+//         scale: 1;
+//     }
+    
+//     100%{
+//         opacity: 0;
+//         scale: 0;
+//     }
+// }
 
 .weather-main {
     @include flexCenter-mixin; 
@@ -116,8 +107,6 @@
     @include flexCenter-mixin; 
     justify-content: center;
     
-   
-
 }
 
 .main-temperature {
@@ -144,9 +133,12 @@
         padding: 11px 20px 0 20px;
         max-height: 80px;
     } 
-    .slide {
+    .slideDown {
         max-height: 400px;
     }    
+    .slideUp {
+        max-height: 226px;
+    }
     .search-input {
         min-width: 150px;
         margin: 10px;
@@ -184,6 +176,12 @@
 }
 
 //toggle
+.theme {
+    margin: 15px; 
+    font-size: 30px; 
+    cursor: pointer
+}
+
 .themeBody {
     background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.7)),  url('../img/night.jpg') 0 0/cover no-repeat; 
     color: #fff;

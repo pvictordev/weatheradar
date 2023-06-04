@@ -99,12 +99,6 @@ select {
   max-height: 226px;
 }
 
-.theme {
-  margin: 15px;
-  font-size: 30px;
-  cursor: pointer;
-}
-
 .search {
   display: flex;
   align-items: center;
@@ -169,23 +163,6 @@ select {
     scale: 1;
   }
 }
-.disappear {
-  opacity: 1;
-  scale: 1;
-  animation: disappear 0.5s forwards;
-  animation-delay: 0.5s;
-}
-
-@keyframes disappear {
-  0% {
-    opacity: 1;
-    scale: 1;
-  }
-  100% {
-    opacity: 0;
-    scale: 0;
-  }
-}
 .weather-main {
   display: flex;
   align-items: center;
@@ -227,8 +204,11 @@ select {
     padding: 11px 20px 0 20px;
     max-height: 80px;
   }
-  .slide {
+  .slideDown {
     max-height: 400px;
+  }
+  .slideUp {
+    max-height: 226px;
   }
   .search-input {
     min-width: 150px;
@@ -264,6 +244,12 @@ select {
     padding-bottom: 20px;
   }
 }
+.theme {
+  margin: 15px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
 .themeBody {
   background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.7)), url("../img/night.jpg") 0 0/cover no-repeat;
   color: #fff;

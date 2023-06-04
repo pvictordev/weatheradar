@@ -37,116 +37,104 @@ function themeChange() {
 theme.addEventListener("click", themeChange); 
 
 
-
-
 //city search
-searchButton.addEventListener("click", () => {
-    
-    const APIkey = '80f6af54d5ac9494f7c6db394b035563'; 
-
-    const location = searchInput.value; 
-
-    if(location === '') return;
-
-    //old code
-    // container.classList.add('slideDown');     
-    // weather.classList.add('appear'); 
-
-    // container.classList.add('slideDown');  
-    //container.classList.toggle('slideUp');    
-
-    // weather.classList.add('appear');
-    // weather.classList.add('disappear'); 
-
-
-    weather.classList.toggle('appear'); 
-
-    
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${APIkey}`).then(response => response.json()).then(json => {
-
-
-        if(json.cod === '404') {
-            mainWeather.innerHTML = 'Not found'; 
-            mainImg.style.display = 'none'; 
-            mainTemp.style.display = 'none';
-            weatherAdd.style.display = 'none'; 
-
-            container.classList.remove('slideDown');
-            container.classList.add('slideUp'); 
-                  
-
-        }
-           
-        else {
-            container.classList.remove('slideUp');
-            container.classList.add('slideDown'); 
-            weather.classList.add('appear'); 
-            
-
-            switch(json.weather[0].main) {
-                case 'Clouds':
-                    imgMain.src = 'img/clouds.png';
-                    mainWeather.innerHTML = 'Clouds';
-                break;
-
-                case 'Rain':
-                    imgMain.src = 'img/rain.png';
-                    mainWeather.innerHTML = 'Rain';
-                break;
-
-                case 'Drizzle':
-                    imgMain.src = 'img/rain.png';
-                    mainWeather.innerHTML = 'Drizle';
-                break;
-
-                case 'Thunderstorm' :
-                    imgMain.src = 'img/Thunderstorm.png';
-                    mainWeather.innerHTML = 'Thunderstorm';
-                break;
-
-                case 'Fog' :
-                    imgMain.src = 'img/fog.png';
-                    mainWeather.innerHTML = 'Fog';
-                break;
-
-                case 'Mist' :
-                    imgMain.src = 'img/fog.png';
-                    mainWeather.innerHTML = 'Mist';
-                break;
-
-                case 'Haze' :
-                    imgMain.src = 'img/fog.png';
-                    mainWeather.innerHTML = 'Haze';
-                break; 
-
-                case 'Clear':
-                    imgMain.src = 'img/clear.png';
-                    mainWeather.innerHTML = 'Clear';
-                break;
-
-                case 'Snow':
-                    imgMain.src = 'img/snow.png';
-                    mainWeather.innerHTML = 'Snow';
-                break;
-                
-                default:
-                    imgMain.src = '';   
-            }
-        }
-            mainTemp.innerHTML = `${Math.round(json.main.temp - 273.15)} °C`
-            humidityValue.innerHTML = `${json.main.humidity} %`; 
-            visibilityValue.innerHTML = `${Math.round(json.visibility / 1000)} km`;
-            windValue.innerHTML = `${Math.round(json.wind.speed)} km/h`
-
-            mainImg.style.display = ''; 
-            mainTemp.style.display = '';
-            weatherAdd.style.display = '';
-
    
+    searchButton.addEventListener("click", () => {
 
-    }); 
+        const APIkey = '80f6af54d5ac9494f7c6db394b035563'; 
     
-})
+        const location = searchInput.value; 
+    
+        if(location === '') return;
+    
+        weather.classList.toggle('appear'); 
+        
+    
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${APIkey}`).then(response => response.json()).then(json => {
+            
+            if(json.cod === '404') {
+                mainWeather.innerHTML = 'Not found'; 
+                mainImg.style.display = 'none'; 
+                mainTemp.style.display = 'none';
+                weatherAdd.style.display = 'none'; 
+      
+                container.classList.remove('slideDown'); 
+                container.classList.add('slideUp');     
+            
+            }
+               
+            else {
+                container.classList.remove('slideUp'); 
+                container.classList.add('slideDown'); 
+
+                weather.classList.add('appear'); 
+              
+                switch(json.weather[0].main) {
+                    case 'Clouds':
+                        imgMain.src = 'img/clouds.png';
+                        mainWeather.innerHTML = 'Clouds';
+                    break;
+    
+                    case 'Rain':
+                        imgMain.src = 'img/rain.png';
+                        mainWeather.innerHTML = 'Rain';
+                    break;
+    
+                    case 'Drizzle':
+                        imgMain.src = 'img/rain.png';
+                        mainWeather.innerHTML = 'Drizle';
+                    break;
+    
+                    case 'Thunderstorm' :
+                        imgMain.src = 'img/Thunderstorm.png';
+                        mainWeather.innerHTML = 'Thunderstorm';
+                    break;
+    
+                    case 'Fog' :
+                        imgMain.src = 'img/fog.png';
+                        mainWeather.innerHTML = 'Fog';
+                    break;
+    
+                    case 'Mist' :
+                        imgMain.src = 'img/fog.png';
+                        mainWeather.innerHTML = 'Mist';
+                    break;
+    
+                    case 'Haze' :
+                        imgMain.src = 'img/fog.png';
+                        mainWeather.innerHTML = 'Haze';
+                    break; 
+    
+                    case 'Clear':
+                        imgMain.src = 'img/clear.png';
+                        mainWeather.innerHTML = 'Clear';
+                    break;
+    
+                    case 'Snow':
+                        imgMain.src = 'img/snow.png';
+                        mainWeather.innerHTML = 'Snow';
+                    break;
+                    
+                    default:
+                        imgMain.src = '';   
+                }
+            }
+                mainTemp.innerHTML = `${Math.round(json.main.temp - 273.15)} °C`
+                humidityValue.innerHTML = `${json.main.humidity} %`; 
+                visibilityValue.innerHTML = `${Math.round(json.visibility / 1000)} km`;
+                windValue.innerHTML = `${Math.round(json.wind.speed)} km/h`
+    
+                mainImg.style.display = ''; 
+                mainTemp.style.display = '';
+                weatherAdd.style.display = '';
+    
+       
+    
+        }); 
+    
+    })
+
+    
 
 
 
