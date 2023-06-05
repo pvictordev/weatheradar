@@ -36,7 +36,7 @@ theme.addEventListener("click", themeChange);
 
 //city search
    
-    searchButton.addEventListener("click", () => {
+    function searchClick() {
 
         const APIkey = '80f6af54d5ac9494f7c6db394b035563'; 
     
@@ -125,8 +125,14 @@ theme.addEventListener("click", themeChange);
                 weatherAdd.style.display = '';
     
         }); 
-    
-    })
+    }
+
+    searchButton.addEventListener("click", searchClick); 
+    document.addEventListener("keydown", event => {
+        if(event.code == "Enter") {
+            searchClick(); 
+        }
+     }); 
 
     
 
