@@ -130,12 +130,15 @@ theme.addEventListener("click", themeChange);
     }
 
     const APIkey = '80f6af54d5ac9494f7c6db394b035563'; 
-    function locationClick() {
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${APIkey}`).then(response => response.json()).then(json => {
-            console.log(json)
-        })
-    }
 
+    function locationClick() {
+        const geoLocation = ''
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                console.log(position.coords)
+            }
+        )
+    }
     locationIcon.addEventListener("click", locationClick); 
    
 
@@ -148,7 +151,45 @@ theme.addEventListener("click", themeChange);
 
     
 
+    console.log(Geolocation.getCurrentPosition)
+
+
+
     
 
-
-
+    function getLocation(latitude, longitude) {
+        var geocoder = new google.maps.Geocoder();
+        var latlng = new google.maps.LatLng(latitude, longitude);
+      
+        geocoder.geocode({ 'latLng': latlng }, function (results, status) {
+          if (status === google.maps.GeocoderStatus.OK) {
+            if (results[0]) {
+              var addressComponents = results[0].address_components;
+              var country, city;
+      
+              for (var i = 0; i < addressComponents.length; i++) {
+                var types = addressComponents[i].types;
+                if (types.indexOf('country') !== -1) {
+                  country = addressComponents[i].long_name;
+                }
+                if (types.indexOf('locality') !== -1 || types.indexOf('administrative_area_level_1') !== -1) {
+                  city = addressComponents[i].long_name;
+                }
+              }
+      
+              console.log('Страна: ' + country);
+              console.log('Город: ' + city);
+            } else {
+              console.log('Нет результатов');
+            }
+          } else {
+            console.log('Geocoder failed due to: ' + status);
+          }
+        });
+      }
+      
+      // Пример использования
+      var latitude = 37.7749; // Широта
+      var longitude = -122.4194; // Долгота
+      getLocation(latitude, longitude);
+      
