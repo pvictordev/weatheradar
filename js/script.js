@@ -57,7 +57,7 @@ theme.addEventListener("click", themeChange);
       
                 container.classList.remove('slideDown'); 
                 container.classList.add('slideUp');     
-            
+                
             }
                
             else {
@@ -115,6 +115,7 @@ theme.addEventListener("click", themeChange);
                         imgMain.src = '';   
                 }
             }
+            
                 mainTemp.innerHTML = `${Math.round(json.main.temp - 273.15)} °C`
                 humidityValue.innerHTML = `${json.main.humidity} %`; 
                 visibilityValue.innerHTML = `${Math.round(json.visibility / 1000)} km`;
@@ -123,9 +124,20 @@ theme.addEventListener("click", themeChange);
                 mainImg.style.display = ''; 
                 mainTemp.style.display = '';
                 weatherAdd.style.display = '';
-    
+            console.log(json.coord)
         }); 
+        
     }
+
+    const APIkey = '80f6af54d5ac9494f7c6db394b035563'; 
+    function locationClick() {
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${APIkey}`).then(response => response.json()).then(json => {
+            console.log(json)
+        })
+    }
+
+    locationIcon.addEventListener("click", locationClick); 
+   
 
     searchButton.addEventListener("click", searchClick); 
     document.addEventListener("keydown", event => {
@@ -133,6 +145,8 @@ theme.addEventListener("click", themeChange);
             searchClick(); 
         }
      }); 
+
+    
 
     
 
