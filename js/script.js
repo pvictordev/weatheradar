@@ -34,19 +34,36 @@ function themeChange() {
 theme.addEventListener("click", themeChange); 
 
 
+  //current location 
+    const geoApi = 'AIzaSyBlVmT_ycGpsJg4LVbHA0IDJ5dZT4-fIPc'; 
+    function locationClick() {
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                const geoLocation = `latlng=${position.coords.latitude}, ${position.coords.longitude}`
+                //console.log(position.coords)
+
+                fetch(`https://maps.googleapis.com/maps/api/geocode/json?${geoLocation}&key=${geoApi}`).then(response => response.json()).then(json => {
+                    let currentLoc = json.results[6].address_components[1].long_name
+                    console.log(currentLoc)
+                })
+            }
+        )
+
+    }
+    locationIcon.addEventListener("click", locationClick); 
+
+
+
+
 //city search
    
     function searchClick() {
 
         const APIkey = '80f6af54d5ac9494f7c6db394b035563'; 
-    
-        const location = searchInput.value; 
-    
+
+
         if(location === '') return;
-    
-        weather.classList.toggle('appear'); 
         
-    
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${APIkey}`).then(response => response.json()).then(json => {
             
             if(json.cod === '404') {
@@ -63,7 +80,7 @@ theme.addEventListener("click", themeChange);
             else {
                 container.classList.remove('slideUp'); 
                 container.classList.add('slideDown'); 
-                weather.classList.add('appear'); 
+             
               
                 switch(json.weather[0].main) {
                     case 'Clouds':
@@ -129,67 +146,24 @@ theme.addEventListener("click", themeChange);
         
     }
 
-    const APIkey = '80f6af54d5ac9494f7c6db394b035563'; 
+  
 
-    function locationClick() {
-        const geoLocation = ''
-        navigator.geolocation.getCurrentPosition(
-            function(position) {
-                console.log(position.coords)
-            }
-        )
-    }
-    locationIcon.addEventListener("click", locationClick); 
+
+
+
+    // geolocation api 'AIzaSyBlVmT_ycGpsJg4LVbHA0IDJ5dZT4-fIPc'
+
+    //request https://maps.googleapis.com/maps/api/geocode/json?place_id=ChIJeRpOeF67j4AR9ydy_PIzPuM&key=YOUR_API_KEY
+
+    //modif https://maps.googleapis.com/maps/api/geocode/json?latlng=45.7801728,24.1434624&key=AIzaSyBlVmT_ycGpsJg4LVbHA0IDJ5dZT4-fIPc
+
+
+
+  
    
 
-    searchButton.addEventListener("click", searchClick); 
-    document.addEventListener("keydown", event => {
-        if(event.code == "Enter") {
-            searchClick(); 
-        }
-     }); 
-
     
 
-    console.log(Geolocation.getCurrentPosition)
 
 
-
-    
-
-    function getLocation(latitude, longitude) {
-        var geocoder = new google.maps.Geocoder();
-        var latlng = new google.maps.LatLng(latitude, longitude);
-      
-        geocoder.geocode({ 'latLng': latlng }, function (results, status) {
-          if (status === google.maps.GeocoderStatus.OK) {
-            if (results[0]) {
-              var addressComponents = results[0].address_components;
-              var country, city;
-      
-              for (var i = 0; i < addressComponents.length; i++) {
-                var types = addressComponents[i].types;
-                if (types.indexOf('country') !== -1) {
-                  country = addressComponents[i].long_name;
-                }
-                if (types.indexOf('locality') !== -1 || types.indexOf('administrative_area_level_1') !== -1) {
-                  city = addressComponents[i].long_name;
-                }
-              }
-      
-              console.log('Страна: ' + country);
-              console.log('Город: ' + city);
-            } else {
-              console.log('Нет результатов');
-            }
-          } else {
-            console.log('Geocoder failed due to: ' + status);
-          }
-        });
-      }
-      
-      // Пример использования
-      var latitude = 37.7749; // Широта
-      var longitude = -122.4194; // Долгота
-      getLocation(latitude, longitude);
       

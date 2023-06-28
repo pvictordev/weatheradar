@@ -13,7 +13,7 @@
     border-radius:10px; 
     @include blurry-mixin(); 
 
-    transition: 1s;
+    //transition: 1s;
     
 }
 .slideDown {
@@ -57,25 +57,26 @@
 
 .weather {
     margin: 10px 0 0px 0;
-    overflow: hidden; 
+    overflow: hidden
 }
-.appear {
-    opacity: 0;
-    scale: 0;
-    animation: appear 0.5s forwards;  
-    animation-delay:0.5s;
-}
-@keyframes appear {
-    0% {
-        opacity: 0;
-        scale: 0;
-    }
+
+// .appear {
+//     opacity: 0;
+//     scale: 0;
+//     animation: appear 0.5s forwards;  
+//     animation-delay:0.5s;
+// }
+// @keyframes appear {
+//     0% {
+//         opacity: 0;
+//         scale: 0;
+//     }
  
-    100%{
-        opacity: 1;
-        scale: 1;
-    }
-}
+//     100%{
+//         opacity: 1;
+//         scale: 1;
+//     }
+// }
 
 
 .weather-main {
@@ -116,12 +117,12 @@
         padding: 11px 20px 0 20px;
         max-height: 80px;
     } 
-    .slideDown {
-        max-height: 400px;
-    }    
-    .slideUp {
-        max-height: 226px;
-    }
+    // .slideDown {
+    //     max-height: 400px;
+    // }    
+    // .slideUp {
+    //     max-height: 226px;
+    // }
     .search-input {
         min-width: 150px;
         margin: 10px;
