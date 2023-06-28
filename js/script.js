@@ -61,6 +61,7 @@ theme.addEventListener("click", themeChange);
 
         const APIkey = '80f6af54d5ac9494f7c6db394b035563'; 
 
+        const location = searchInput.value; 
 
         if(location === '') return;
         
