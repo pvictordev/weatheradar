@@ -56,6 +56,18 @@ const locationClick = () => {
 
 locationIcon.addEventListener("click", locationClick)
 
+//animations
+function slideDown() {
+    container.classList.add('slideDown');
+    container.classList.remove('slideUp')
+}
+  
+function slideUp() {
+    container.classList.remove('slideDown');
+    container.classList.add('slideUp');
+}
+
+  
 
 //city search
    
@@ -67,23 +79,21 @@ locationIcon.addEventListener("click", locationClick)
         
         const APIkey = '80f6af54d5ac9494f7c6db394b035563'; 
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${APIkey}`).then(response => response.json()).then(json => {
-            
-            if(json.cod === '404') {
+
+                if(json.cod === '404') {
+                slideUp()
+
                 mainWeather.innerHTML = 'Not found'; 
                 mainImg.style.display = 'none'; 
                 mainTemp.style.display = 'none';
                 weatherAdd.style.display = 'none'; 
-      
-                container.classList.remove('slideDown'); 
-                container.classList.add('slideUp');     
+                    
                 
             }
                
             else {
-                container.classList.remove('slideUp'); 
-                container.classList.add('slideDown'); 
-             
-              
+                slideDown()  
+                     
                 switch(json.weather[0].main) {
                     case 'Clouds':
                         imgMain.src = 'img/clouds.png';
@@ -143,7 +153,7 @@ locationIcon.addEventListener("click", locationClick)
                 mainImg.style.display = ''; 
                 mainTemp.style.display = '';
                 weatherAdd.style.display = '';
-            console.log(json.coord)
+            
         }); 
         
     }
