@@ -58,30 +58,30 @@ const locationClick = () => {
 locationIcon.addEventListener("click", locationClick)
 
 //animations
-function slideDown() {
-    container.classList.add('slideDown');
-    container.classList.remove('slideUp')
-}
+// function slideDown() {
+//     container.classList.add('slideDown');
+//     container.classList.remove('slideUp')
+// }
   
-function slideUp() {
-    container.classList.remove('slideDown');
-    container.classList.add('slideUp');
-}
+// function slideUp() {
+//     container.classList.remove('slideDown');
+//     container.classList.add('slideUp');
+// }
 
   
 
 //city search
    
     function searchClick() {
-       
+        
         //appear animation
-        weather.classList.add('fadeOut')
-        setTimeout(function() {
-            // Удаляем класс fadeOut
-            weather.classList.remove('fadeOut');
-            // Добавляем класс fadeIn
-            weather.classList.add('fadeIn');
-          }, 150); 
+        // weather.classList.add('fadeOut')
+        // setTimeout(function() {
+        //    
+        //     weather.classList.remove('fadeOut');
+        //    
+        //     weather.classList.add('fadeIn');
+        //   }, 100); 
 
         const location = searchInput.value; 
     

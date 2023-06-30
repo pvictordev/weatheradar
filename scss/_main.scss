@@ -12,7 +12,7 @@
     border-radius:10px; 
     @include blurry-mixin(); 
 
-    //transition: max-height 0.25s ease;
+    //transition: max-height 0.3s ease;
 
 }
 .slideDown {
@@ -58,16 +58,16 @@
 .weather {
     margin: 10px 0 0px 0;
     overflow: hidden; 
-    transition: scale 0.4s ease;
+    //transition: scale 0.4s ease;
 }
-.fadeIn {
-    opacity: 1;
-    scale:1;
-}
-.fadeOut {
-    opacity: 0; 
-    scale: 0;
-}
+// .fadeIn {
+//     opacity: 1;
+//     scale:1;
+// }
+// .fadeOut {
+//     opacity: 0; 
+//     scale: 0;
+// }
 
 
 
