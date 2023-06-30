@@ -58,15 +58,15 @@ const locationClick = () => {
 locationIcon.addEventListener("click", locationClick)
 
 //animations
-// function slideDown() {
-//     container.classList.add('slideDown');
-//     container.classList.remove('slideUp')
-// }
+function slideDown() {
+    container.classList.add('slideDown');
+    container.classList.remove('slideUp')
+}
   
-// function slideUp() {
-//     container.classList.remove('slideDown');
-//     container.classList.add('slideUp');
-// }
+function slideUp() {
+    container.classList.remove('slideDown');
+    container.classList.add('slideUp');
+}
 
   
 
