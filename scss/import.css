@@ -141,6 +141,17 @@ select {
 .weather {
   margin: 10px 0 0px 0;
   overflow: hidden;
+  transition: scale 0.4s ease;
+}
+
+.fadeIn {
+  opacity: 1;
+  scale: 1;
+}
+
+.fadeOut {
+  opacity: 0;
+  scale: 0;
 }
 
 .weather-main {
@@ -243,4 +254,10 @@ select {
 }
 .themeSearch::placeholder {
   color: #fff;
+}
+
+.notFound {
+  display: none;
+  font-size: 25px;
+  margin-top: 20px;
 }/*# sourceMappingURL=import.css.map */

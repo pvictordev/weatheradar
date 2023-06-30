@@ -25,6 +25,11 @@ const windValue = document.querySelector('.wind-value');
 
 const theme = document.querySelector('.theme'); 
 
+const notFound = document.createElement('p'); 
+notFound.textContent = 'Not Found'; 
+notFound.classList.add('notFound'); 
+container.appendChild(notFound); 
+
 
 //theme changing
 function themeChange() {
@@ -75,13 +80,13 @@ function slideUp() {
     function searchClick() {
         
         //appear animation
-        // weather.classList.add('fadeOut')
-        // setTimeout(function() {
-        //    
-        //     weather.classList.remove('fadeOut');
-        //    
-        //     weather.classList.add('fadeIn');
-        //   }, 100); 
+        weather.classList.add('fadeOut')
+        setTimeout(function() {
+           
+            weather.classList.remove('fadeOut');
+           
+            weather.classList.add('fadeIn');
+          }, 150); 
 
         const location = searchInput.value; 
     
@@ -92,16 +97,16 @@ function slideUp() {
 
                 if(json.cod === '404') {
                 slideUp()
+                weather.style.display = 'none'
+                notFound.style.display = 'block'
 
-                mainWeather.innerHTML = 'Not found'; 
-                mainImg.style.display = 'none'; 
-                mainTemp.style.display = 'none';
-                weatherAdd.style.display = 'none'; 
             }
                
             else {
                 slideDown() 
-                
+                weather.style.display = 'block'
+                notFound.style.display = 'none'
+
                 switch(json.weather[0].main) {
                     case 'Clouds':
                         imgMain.src = 'img/clouds.png';
@@ -158,14 +163,15 @@ function slideUp() {
                 visibilityValue.innerHTML = `${Math.round(json.visibility / 1000)} km`;
                 windValue.innerHTML = `${Math.round(json.wind.speed)} km/h`
     
-                mainImg.style.display = ''; 
-                mainTemp.style.display = '';
-                weatherAdd.style.display = '';
+                    // mainImg.style.display = ''; 
+                    // mainTemp.style.display = '';
+                    // weatherAdd.style.display = '';
             
         }); 
         
     }
-    searchButton.addEventListener("click", searchClick)
+    searchButton.addEventListener("click", searchClick); 
+
     document.addEventListener("keydown", event => {
         if(event.code == "Enter") {
             searchClick(); 

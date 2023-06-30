@@ -5,7 +5,6 @@
     justify-content: center;
     flex-direction:column;
     padding: 30px 20px 20px 20px;
-    
     margin: 5% auto;
     max-width: 510px;
     max-height: 110px;
@@ -58,16 +57,16 @@
 .weather {
     margin: 10px 0 0px 0;
     overflow: hidden; 
-    //transition: scale 0.4s ease;
+    transition: scale 0.4s ease;
 }
-// .fadeIn {
-//     opacity: 1;
-//     scale:1;
-// }
-// .fadeOut {
-//     opacity: 0; 
-//     scale: 0;
-// }
+.fadeIn {
+    opacity: 1;
+    scale:1;
+}
+.fadeOut {
+    opacity: 0; 
+    scale: 0;
+}
 
 
 
@@ -167,6 +166,11 @@
     &::placeholder {
         color: #fff;
     }
+}
+.notFound {
+    display: none;
+    font-size: 25px;
+    margin-top: 20px;
 }
 
 
