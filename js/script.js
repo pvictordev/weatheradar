@@ -45,8 +45,9 @@ const locationClick = () => {
             //console.log(position.coords)
            
             fetch(`https://maps.googleapis.com/maps/api/geocode/json?${geoLocation}&key=${geoApi}`).then(response => response.json()).then(json => {
-                searchInput.value = json.results[6].address_components[1].long_name
+                searchInput.value = json.results[5].address_components[1].long_name
                 searchClick(); 
+
             })
            
         }
@@ -72,6 +73,15 @@ function slideUp() {
 //city search
    
     function searchClick() {
+       
+        //appear animation
+        weather.classList.add('fadeOut')
+        setTimeout(function() {
+            // Удаляем класс fadeOut
+            weather.classList.remove('fadeOut');
+            // Добавляем класс fadeIn
+            weather.classList.add('fadeIn');
+          }, 150); 
 
         const location = searchInput.value; 
     
@@ -87,13 +97,11 @@ function slideUp() {
                 mainImg.style.display = 'none'; 
                 mainTemp.style.display = 'none';
                 weatherAdd.style.display = 'none'; 
-                    
-                
             }
                
             else {
-                slideDown()  
-                     
+                slideDown() 
+                
                 switch(json.weather[0].main) {
                     case 'Clouds':
                         imgMain.src = 'img/clouds.png';

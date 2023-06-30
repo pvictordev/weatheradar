@@ -1,9 +1,8 @@
 //main scss
 
 .container {
-    display: flex;
+    @include flexCenter-mixin; 
     justify-content: center;
-    align-items: center;
     flex-direction:column;
     padding: 30px 20px 20px 20px;
     
@@ -13,7 +12,7 @@
     border-radius:10px; 
     @include blurry-mixin(); 
 
-    transition: max-height 0.5s ease;
+    //transition: max-height 0.25s ease;
 
 }
 .slideDown {
@@ -21,7 +20,7 @@
   
 }
 .slideUp {
-    max-height: 226px;  
+    max-height:226px
 }
 
 
@@ -59,6 +58,15 @@
 .weather {
     margin: 10px 0 0px 0;
     overflow: hidden; 
+    transition: scale 0.4s ease;
+}
+.fadeIn {
+    opacity: 1;
+    scale:1;
+}
+.fadeOut {
+    opacity: 0; 
+    scale: 0;
 }
 
 
