@@ -86,14 +86,11 @@ select {
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: max-height 0.3s ease;
 }
 
 .slideDown {
   max-height: 500px;
-}
-
-.slideUp {
-  max-height: 226px;
 }
 
 .search {
@@ -142,6 +139,8 @@ select {
   margin: 10px 0 0px 0;
   overflow: hidden;
   transition: scale 0.4s ease;
+  opacity: 0;
+  scale: 0;
 }
 
 .fadeIn {
@@ -259,5 +258,18 @@ select {
 .notFound {
   display: none;
   font-size: 25px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.notFoundBlack {
+  margin-top: 20px;
+  display: none;
+  overflow: hidden;
+}
+
+.notFoundImg {
+  display: none;
+  overflow: hidden;
   margin-top: 20px;
 }/*# sourceMappingURL=import.css.map */

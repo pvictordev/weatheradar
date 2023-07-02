@@ -25,16 +25,35 @@ const windValue = document.querySelector('.wind-value');
 
 const theme = document.querySelector('.theme'); 
 
+const notFoundImg = document.createElement('img'); 
+notFoundImg.src = 'img/notFound.png'; 
+notFoundImg.classList.add('notFoundImg'); 
+container.appendChild(notFoundImg)
+
+// const notFoundBlack = document.createElement('img'); 
+// notFoundBlack.src = 'img/notFoundBlack.png'; 
+// notFoundBlack.classList.add('notFoundBlack'); 
+// container.appendChild(notFoundBlack)
+
+
 const notFound = document.createElement('p'); 
 notFound.textContent = 'Not Found'; 
 notFound.classList.add('notFound'); 
 container.appendChild(notFound); 
 
 
+
+
+
 //theme changing
 function themeChange() {
     body.classList.toggle('themeBody'); 
-    searchInput.classList.toggle('themeSearch')
+    searchInput.classList.toggle('themeSearch'); 
+
+    if(searchInput.classList.contains('themeSearch') == true) {
+        notFoundImg.src = 'img/notFoundBlack.png'
+    }
+    else { notFoundImg.src = 'img/notFound.png'}
 }
 theme.addEventListener("click", themeChange); 
 
@@ -47,7 +66,6 @@ const locationClick = () => {
     navigator.geolocation.getCurrentPosition(
         function(position) {
             const geoLocation = `latlng=${position.coords.latitude}, ${position.coords.longitude}`
-            //console.log(position.coords)
            
             fetch(`https://maps.googleapis.com/maps/api/geocode/json?${geoLocation}&key=${geoApi}`).then(response => response.json()).then(json => {
                 searchInput.value = json.results[5].address_components[1].long_name
@@ -87,6 +105,8 @@ function slideUp() {
            
             weather.classList.add('fadeIn');
           }, 150); 
+        weather.classList.add('fadeIn');    
+        
 
         const location = searchInput.value; 
     
@@ -94,18 +114,21 @@ function slideUp() {
         
         const APIkey = '80f6af54d5ac9494f7c6db394b035563'; 
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${APIkey}`).then(response => response.json()).then(json => {
+            slideDown() 
 
-                if(json.cod === '404') {
-                slideUp()
-                weather.style.display = 'none'
-                notFound.style.display = 'block'
+            if(json.cod === '404') {
+                
+                weather.style.display = 'none';
+                notFound.style.display = 'block';
+                notFoundImg.style.display = 'block';
 
             }
                
             else {
-                slideDown() 
+                
                 weather.style.display = 'block'
                 notFound.style.display = 'none'
+                notFoundImg.style.display = 'none'
 
                 switch(json.weather[0].main) {
                     case 'Clouds':
@@ -162,10 +185,6 @@ function slideUp() {
                 humidityValue.innerHTML = `${json.main.humidity} %`; 
                 visibilityValue.innerHTML = `${Math.round(json.visibility / 1000)} km`;
                 windValue.innerHTML = `${Math.round(json.wind.speed)} km/h`
-    
-                    // mainImg.style.display = ''; 
-                    // mainTemp.style.display = '';
-                    // weatherAdd.style.display = '';
             
         }); 
         
