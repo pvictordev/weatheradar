@@ -74,18 +74,19 @@ select {
 .container {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 30px 20px 20px 20px;
-  margin: 5% auto;
-  max-width: 510px;
-  max-height: 110px;
-  border-radius: 10px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  flex-direction: column;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px 20px 20px 20px;
+  margin: 5% auto;
+  max-width: 510px;
+  border-radius: 10px;
+  max-height: 110px;
   transition: max-height 0.3s ease;
 }
 
@@ -105,15 +106,15 @@ select {
 }
 
 .search-input {
-  margin: 0 20px;
-  min-width: 300px;
-  padding: 5px 5px 5px 10px;
-  border-radius: 5px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  margin: 0 20px;
+  min-width: 300px;
+  padding: 5px 5px 5px 10px;
+  border-radius: 5px;
 }
 
 .search-input:focus {
@@ -138,6 +139,7 @@ select {
 .weather {
   margin: 10px 0 0px 0;
   overflow: hidden;
+  display: none;
   transition: scale 0.4s ease;
   opacity: 0;
   scale: 0;
@@ -161,11 +163,11 @@ select {
 }
 
 .main-img {
+  display: flex;
+  align-items: center;
   max-width: 200px;
   max-height: 200px;
   margin: 0 10px 0 0px;
-  display: flex;
-  align-items: center;
   justify-content: center;
 }
 
@@ -185,55 +187,9 @@ select {
   align-items: center;
   justify-content: space-between;
   padding-bottom: 10px;
+  text-align: center;
 }
 
-@media (max-width: 520px) {
-  .container {
-    margin: 5% auto;
-    max-width: 300px;
-    padding: 11px 20px 0 20px;
-    max-height: 80px;
-  }
-  .slideDown {
-    max-height: 400px;
-  }
-  .slideUp {
-    max-height: 226px;
-  }
-  .search-input {
-    min-width: 150px;
-    margin: 10px;
-  }
-  .search-btn {
-    font-size: 20px;
-  }
-  .location-icon {
-    font-size: 20px;
-  }
-  .weather {
-    margin: 0;
-  }
-  .weather-main {
-    margin: 15px 0 20px 0;
-  }
-  .main-img {
-    max-width: 150px;
-    max-height: 150px;
-    margin: 0 10px 0 0px;
-  }
-  .main-temperature {
-    font-size: 25px;
-  }
-  .main-weather {
-    text-align: center;
-    margin: 0px 0 30px 0;
-    font-size: 20px;
-  }
-  .weather-add {
-    font-size: 15px;
-    padding-bottom: 20px;
-  }
-}
 .theme {
   margin: 15px;
   font-size: 30px;
@@ -257,19 +213,79 @@ select {
 
 .notFound {
   display: none;
-  font-size: 25px;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  overflow: hidden;
+  font-size: 30px;
+  margin-top: 10.5px;
+  margin-bottom: 10.5px;
 }
 
 .notFoundBlack {
-  margin-top: 20px;
   display: none;
   overflow: hidden;
+  width: 300px;
+  height: 300px;
 }
 
 .notFoundImg {
   display: none;
   overflow: hidden;
-  margin-top: 20px;
+  width: 322px;
+  height: 322px;
+}
+
+@media (max-width: 520px) {
+  .container {
+    max-width: 350px;
+    padding: 10px 20px 10px 20px;
+    max-height: 100px;
+  }
+  .slideDown {
+    max-height: 400px;
+  }
+  .search-input {
+    min-width: 150px;
+    margin: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .search-input::-moz-placeholder {
+    font-size: 15px;
+  }
+  .search-input::placeholder {
+    font-size: 15px;
+  }
+  .search-btn {
+    font-size: 20px;
+  }
+  .location-icon {
+    font-size: 20px;
+  }
+  .weather-main {
+    margin: 15px 0 20px 0;
+  }
+  .main-img {
+    max-width: 150px;
+    max-height: 150px;
+    margin: 0 10px 0 0px;
+  }
+  .notFound {
+    font-size: 25px;
+    margin-top: 20.5px;
+  }
+  .notFoundImg {
+    max-width: 236px;
+    max-height: 235.5px;
+  }
+  .main-temperature {
+    font-size: 25px;
+  }
+  .main-weather {
+    text-align: center;
+    margin: 0px 0 30px 0;
+    font-size: 20px;
+  }
+  .weather-add {
+    font-size: 13px;
+    padding-bottom: 10px;
+  }
 }/*# sourceMappingURL=import.css.map */

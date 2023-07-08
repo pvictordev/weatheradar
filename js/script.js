@@ -121,14 +121,15 @@ function slideUp() {
                 weather.style.display = 'none';
                 notFound.style.display = 'block';
                 notFoundImg.style.display = 'block';
+               
 
             }
                
             else {
                 
                 weather.style.display = 'block'
-                notFound.style.display = 'none'
-                notFoundImg.style.display = 'none'
+                notFound.style.display = 'none';
+                notFoundImg.style.display = 'none';
 
                 switch(json.weather[0].main) {
                     case 'Clouds':
