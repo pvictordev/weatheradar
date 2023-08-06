@@ -70,7 +70,7 @@ const locationClick = () => {
             fetch(`https://maps.googleapis.com/maps/api/geocode/json?${geoLocation}&key=${geoApi}`).then(response => response.json()).then(json => {
                 searchInput.value = json.results[5].address_components[1].long_name
                 searchClick(); 
-
+                console.log(json)
             })
            
         }
@@ -186,7 +186,7 @@ function slideUp() {
                 humidityValue.innerHTML = `${json.main.humidity} %`; 
                 visibilityValue.innerHTML = `${Math.round(json.visibility / 1000)} km`;
                 windValue.innerHTML = `${Math.round(json.wind.speed)} km/h`
-            
+
         }); 
         
     }
