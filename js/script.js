@@ -42,9 +42,6 @@ notFound.classList.add('notFound');
 container.appendChild(notFound); 
 
 
-
-
-
 //theme changing
 function themeChange() {
     body.classList.toggle('themeBody'); 
