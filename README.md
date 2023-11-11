@@ -1,3 +1,3 @@
 # WEATHERADAR
-## Weather Web App, first project where I used API
+## Weather Web App connected to OpenWeatherMap API
 Deploy : https://pvictordev.github.io/weatheradar/
